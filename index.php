@@ -151,11 +151,32 @@ $db = [
 //     };
 // };
 
-
-
-
-
-
+$arrayAlunni = [
+    [
+        'nome' => 'Paolo',
+        'cognome' => 'Bianchi',
+        'voti' => [9, 2, 3, 4, 5, 6]
+    ],
+    [
+        'nome' => 'Giulia',
+        'cognome' => 'Rossi',
+        'voti' => [4, 2, 2, 4, 5, 1]
+    ],
+    [
+        'nome' => 'Carla',
+        'cognome' => 'Bruni',
+        'voti' => [2, 2, 2, 8, 4, 7]
+    ]
+];
+function calcolaMedia($nums)
+{
+    $qt = count($nums);
+    $res = 0;
+    foreach ($nums as $n) {
+        $res += $n;
+    }
+    return $res / $qt;
+};
 ?>
 
 
@@ -206,15 +227,27 @@ $db = [
             <h1 class="text-primary"> Snack case 6</h1>
 
             <?php foreach ($db as $y => $y_value) {
-                if (strpos($y[1],'teachers')!=false) {
+                if (strpos($y, 'teachers') != false) {
                     $class = 'grey';
                 } else {
                     $class = 'green';
                 }; ?>
             <p class=<?php echo "$class"; ?>>
-                <?php echo 'Ruolo : ' .  $y;
+                <?php echo 'Ruolo : ' .  $y;;
             } ?>
             </p>
+            <h1 class="text-primary"> Snack case 7</h1>
+            <ul><?php foreach ($arrayAlunni as $j => $j_value) { ?>
+                <li>
+                    <?php echo $j_value['nome']; ?><br>
+                    <?php echo $j_value['cognome']; ?><br>
+                    <?php  $media = calcolaMedia($j_value['voti']);
+                            echo 'Media voto : ' . $media;
+                    } ?><br>
+                </li>
+            </ul>
+
+
 
 
 
