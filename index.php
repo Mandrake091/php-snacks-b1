@@ -66,6 +66,96 @@ if (empty($_GET['name']) || empty($_GET['mail']) || empty($_GET['age'])) {
 } else {
     $message = 'Accesso negato';
 }
+
+$posts = [
+
+    '10/01/2019' => [
+        [
+            'title' => 'Post 1',
+            'author' => 'Michele Papagni',
+            'text' => 'Testo post 1'
+        ],
+        [
+            'title' => 'Post 2',
+            'author' => 'Michele Papagni',
+            'text' => 'Testo post 2'
+        ],
+    ],
+    '10/02/2019' => [
+        [
+            'title' => 'Post 3',
+            'author' => 'Michele Papagni',
+            'text' => 'Testo post 3'
+        ]
+    ],
+    '15/05/2019' => [
+        [
+            'title' => 'Post 4',
+            'author' => 'Michele Papagni',
+            'text' => 'Testo post 4'
+        ],
+        [
+            'title' => 'Post 5',
+            'author' => 'Michele Papagni',
+            'text' => 'Testo post 5'
+        ],
+        [
+            'title' => 'Post 6',
+            'author' => 'Michele Papagni',
+            'text' => 'Testo post 6'
+        ]
+    ],
+];
+
+
+$newArray = [];
+while (count($newArray) < 15) {
+    $number = rand(1, 50);
+    if (!in_array($number, $newArray)) {
+        $newArray[] = $number;
+    }
+};
+
+$paragraph = 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Porro eligendi ducimus qui a sequi quasi et obcaecati, ea sit maiores odio aspernatur culpa vitae ipsum modi labore suscipit nobis iste doloribus accusantium magnam rem tempore cumque. Blanditiis adipisci eum fugit ut reiciendis nam perferendis voluptatem quis ipsa doloremque sed, aut quos eos repellat? Blanditiis perspiciatis, ex consectetur quae tenetur at ut alias molestiae quibusdam error cupiditate asperiores excepturi ducimus exercitationem id minus odit illo tempore hic veritatis atque qui. Asperiores possimus unde explicabo quos dolor praesentium nesciunt ducimus magni sunt totam, suscipit itaque autem maiores, sapiente sit obcaecati consequatur. Error!';
+
+$db = [
+    'teachers' => [
+        [
+            'name' => 'Michele',
+            'lastname' => 'Papagni'
+        ],
+        [
+            'name' => 'Fabio',
+            'lastname' => 'Forghieri'
+        ]
+    ],
+    'pm' => [
+        [
+            'name' => 'Roberto',
+            'lastname' => 'Marazzini'
+        ],
+        [
+            'name' => 'Federico',
+            'lastname' => 'Pellegrini'
+        ]
+    ]
+];
+
+
+// foreach ($db as $y => $y_value) {
+
+//     if (in_array('pm', $y_value)) {
+//         $class = 'grey';
+//     } else {
+//         $class = 'green';
+//     };
+// };
+
+
+
+
+
+
 ?>
 
 
@@ -76,8 +166,9 @@ if (empty($_GET['name']) || empty($_GET['mail']) || empty($_GET['age'])) {
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-    <link rel="stylesheet" href="/css/style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/style.css">
     <title>Document</title>
 </head>
 
@@ -86,21 +177,47 @@ if (empty($_GET['name']) || empty($_GET['mail']) || empty($_GET['age'])) {
         <div class="container">
             <h1 class="text-primary"> Snack case 1</h1>
             <ul> <?php for ($i = 0; $i < count($matchArray); $i++) { ?>
-                    <li>
-                        <?php echo  'Stadio: ' . "{$matchArray[$i]['match']}"; ?>
-                        <br>
-                        <?php echo 'Match: ' . "{$matchArray[$i]['casa']}"; ?>
-                        <?php echo ' - ' . "{$matchArray[$i]['ospite']}"; ?>
-                        <?php echo ' | Risultato: ' . "{$matchArray[$i]['puntiOspite']}"; ?>
+                <li>
+                    <?php echo  'Stadio: ' . "{$matchArray[$i]['match']}"; ?>
+                    <br>
+                    <?php echo 'Match: ' . "{$matchArray[$i]['casa']}"; ?>
+                    <?php echo ' - ' . "{$matchArray[$i]['ospite']}"; ?>
+                    <?php echo ' | Risultato: ' . "{$matchArray[$i]['puntiOspite']}"; ?>
                     <?php echo ' - ' . "{$matchArray[$i]['puntiCasa']}";
                     } ?>
-                    </li>
+                </li>
             </ul>
             <h1 class="text-primary"> Snack case 2</h1>
             <p><?php echo $message ?></p>
             <h1 class="text-primary"> Snack case 3</h1>
+            <ul><?php foreach ($posts as $x => $x_value) { ?>
+                <li>
+                    <?php echo  'Data: ' . $x; ?> <br>
+                    <?php echo $x_value[0]['title']; ?><br>
+                    <?php echo $x_value[0]['text']; ?><br>
+                    <?php echo $x_value[0]['author'];
+                } ?><br>
+                </li>
+            </ul>
+            <h1 class="text-primary"> Snack case 4</h1>
+            <?php var_dump($newArray) ?>
+            <h1 class="text-primary"> Snack case 5</h1>
+            <?php var_dump(explode(".", $paragraph)) ?>
+            <h1 class="text-primary"> Snack case 6</h1>
 
-        </div>
+            <?php foreach ($db as $y => $y_value) {
+                if (strpos($y[1],'teachers')!=false) {
+                    $class = 'grey';
+                } else {
+                    $class = 'green';
+                }; ?>
+            <p class=<?php echo "$class"; ?>>
+                <?php echo 'Ruolo : ' .  $y;
+            } ?>
+            </p>
+
+
+
 
     </main>
 
