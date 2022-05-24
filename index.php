@@ -141,21 +141,11 @@ $db = [
     ]
 ];
 
-
-// foreach ($db as $y => $y_value) {
-
-//     if (in_array('pm', $y_value)) {
-//         $class = 'grey';
-//     } else {
-//         $class = 'green';
-//     };
-// };
-
 $arrayAlunni = [
     [
         'nome' => 'Paolo',
         'cognome' => 'Bianchi',
-        'voti' => [9, 2, 3, 4, 5, 6]
+        'voti' => [9, 10, 7, 4, 8, 6]
     ],
     [
         'nome' => 'Giulia',
@@ -189,7 +179,7 @@ function calcolaMedia($nums)
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="./style/style.css">
     <title>Document</title>
 </head>
 
@@ -210,6 +200,7 @@ function calcolaMedia($nums)
             </ul>
             <h1 class="text-primary"> Snack case 2</h1>
             <p><?php echo $message ?></p>
+
             <h1 class="text-primary"> Snack case 3</h1>
             <ul><?php foreach ($posts as $x => $x_value) { ?>
                 <li>
@@ -220,40 +211,36 @@ function calcolaMedia($nums)
                 } ?><br>
                 </li>
             </ul>
+
             <h1 class="text-primary"> Snack case 4</h1>
             <?php var_dump($newArray) ?>
+
             <h1 class="text-primary"> Snack case 5</h1>
             <?php var_dump(explode(".", $paragraph)) ?>
+
             <h1 class="text-primary"> Snack case 6</h1>
 
-            <?php foreach ($db as $y => $y_value) {
-                if (strpos($y, 'teachers') != false) {
-                    $class = 'grey';
-                } else {
-                    $class = 'green';
-                }; ?>
-            <p class=<?php echo "$class"; ?>>
-                <?php echo 'Ruolo : ' .  $y;;
-            } ?>
-            </p>
+            <?php foreach ($db as $key => $value) { ?>
+            <?php echo "<h2>$key</h2>" ?>
+            <div class="<?php echo $key ?>">
+                <?php foreach ($value as $value) {
+                        echo "
+                        <p>$value[name] $value[lastname] </p>";
+                    } ?>
+            </div> <?php
+                    } ?>
+
             <h1 class="text-primary"> Snack case 7</h1>
             <ul><?php foreach ($arrayAlunni as $j => $j_value) { ?>
                 <li>
                     <?php echo $j_value['nome']; ?><br>
                     <?php echo $j_value['cognome']; ?><br>
-                    <?php  $media = calcolaMedia($j_value['voti']);
-                            echo 'Media voto : ' . $media;
-                    } ?><br>
+                    <?php $media = calcolaMedia($j_value['voti']);
+                    echo 'Media voto : ' . $media;
+                } ?><br>
                 </li>
             </ul>
-
-
-
-
-
-
     </main>
-
 </body>
 
 </html>

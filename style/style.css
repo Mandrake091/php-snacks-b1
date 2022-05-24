@@ -1,21 +1,20 @@
 * {
-  
         margin: 0;
         padding: 0;
         box-sizing: border-box;
     }
 
-    .grey,
-    .green {
+    .teachers,
+    .pm {
         padding: 40px;
         float: left;
         width: 50%;
     }
 
-    .grey {
+    .teachers {
         background: grey;
     }
 
-    .green {
+    .pm {
         background: green;
     }
