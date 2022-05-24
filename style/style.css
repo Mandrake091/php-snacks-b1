@@ -6,15 +6,14 @@
 
     .teachers,
     .pm {
-        padding: 40px;
         float: left;
         width: 50%;
+        padding: 40px;
     }
 
     .teachers {
         background: grey;
     }
-
     .pm {
         background: green;
     }
