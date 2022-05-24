@@ -23,8 +23,9 @@ rettangolo grigio e i PM in un rettangolo verde.
 Creare un array contenente qualche alunno di un’ipotetica classe. Ogni alunno avrà Nome, Cognome e un array contenente i
 suoi voti scolastici. Stampare Nome, Cognome e la media dei voti di ogni alunno. -->
 
-//snack-1
+
 <?php
+//snack-1
 $matchArray = [
     [
         'match' => 'Olimpia',
@@ -109,6 +110,7 @@ $posts = [
         ]
     ],
 ];
+
 
 //snack-4
 $newArray = [];
@@ -208,16 +210,20 @@ function calcolaMedia($nums)
             <p><?php echo $message ?></p>
 
             <h1 class="text-primary"> Snack case 3</h1>
-            <ul><?php foreach ($posts as $x => $x_value) { ?>
-                <li>
-                    <?php echo  'Data: ' . $x; ?> <br>
-                    <?php echo $x_value[0]['title']; ?><br>
-                    <?php echo $x_value[0]['text']; ?><br>
-                    <?php echo $x_value[0]['author'];
-                } ?><br>
-                </li>
-            </ul>
 
+            <?php
+            foreach ($posts as $key => $value) {
+                echo "<h5> Data: $key </h5>";
+                "<br>";
+                foreach ($value as $prop => $item) {
+                    echo "<ul>";
+                    foreach ($item as $k => $val) {
+                        echo "<li>{$k}: {$val}</li>";
+                    }
+                    echo "</ul>";
+                }
+            }
+            ?>
             <h1 class="text-primary"> Snack case 4</h1>
             <?php var_dump($newArray) ?>
 
@@ -242,7 +248,7 @@ function calcolaMedia($nums)
                     <?php echo $j_value['nome']; ?><br>
                     <?php echo $j_value['cognome']; ?><br>
                     <?php $media = calcolaMedia($j_value['voti']);
-                    echo 'Media voto : ' . round($media, $precision = 1) ;
+                    echo 'Media voto : ' . round($media, $precision = 1);
                 } ?><br>
                 </li>
             </ul>
