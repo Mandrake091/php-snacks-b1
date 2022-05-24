@@ -23,7 +23,7 @@ rettangolo grigio e i PM in un rettangolo verde.
 Creare un array contenente qualche alunno di un’ipotetica classe. Ogni alunno avrà Nome, Cognome e un array contenente i
 suoi voti scolastici. Stampare Nome, Cognome e la media dei voti di ogni alunno. -->
 
-
+//snack-1
 <?php
 $matchArray = [
     [
@@ -55,6 +55,8 @@ $matchArray = [
         'puntiCasa' => 78,
     ]
 ];
+
+//snack-2
 $name = $_GET['name'];
 $mail = $_GET['mail'];
 $age = $_GET['age'];
@@ -67,6 +69,7 @@ if (empty($_GET['name']) || empty($_GET['mail']) || empty($_GET['age'])) {
     $message = 'Accesso negato';
 }
 
+//snack-3
 $posts = [
 
     '10/01/2019' => [
@@ -107,7 +110,7 @@ $posts = [
     ],
 ];
 
-
+//snack-4
 $newArray = [];
 while (count($newArray) < 15) {
     $number = rand(1, 50);
@@ -116,8 +119,10 @@ while (count($newArray) < 15) {
     }
 };
 
+//snack-5
 $paragraph = 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Porro eligendi ducimus qui a sequi quasi et obcaecati, ea sit maiores odio aspernatur culpa vitae ipsum modi labore suscipit nobis iste doloribus accusantium magnam rem tempore cumque. Blanditiis adipisci eum fugit ut reiciendis nam perferendis voluptatem quis ipsa doloremque sed, aut quos eos repellat? Blanditiis perspiciatis, ex consectetur quae tenetur at ut alias molestiae quibusdam error cupiditate asperiores excepturi ducimus exercitationem id minus odit illo tempore hic veritatis atque qui. Asperiores possimus unde explicabo quos dolor praesentium nesciunt ducimus magni sunt totam, suscipit itaque autem maiores, sapiente sit obcaecati consequatur. Error!';
 
+//snack-6
 $db = [
     'teachers' => [
         [
@@ -141,6 +146,7 @@ $db = [
     ]
 ];
 
+//snack-7
 $arrayAlunni = [
     [
         'nome' => 'Paolo',
